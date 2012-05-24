@@ -33,18 +33,20 @@ public class JsModLoader implements ModLoader<JsMod> {
 		return null;
 	}
 
-	public JsMod loadModInDev(File directory) throws InvalidModException {
+	public JsMod loadModFromFolder(File directory) throws InvalidModException {
 		File modJson = new File(directory, "mod.json");
 		ModDescription desc = null;
-		
+
 		try {
 			desc = ModDescription.load(modJson);
 		} catch (IOException e) {
 			throw new InvalidModException("Mod.json not found!", e);
 		}
+
 		
 		JsMod mod = new JsMod(desc, this);
-
+		
+		
 		return null;
 	}
 
